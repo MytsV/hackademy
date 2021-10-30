@@ -23,7 +23,7 @@ char *set_zero(char *str)
 //the function converts an integer to ASCII string
 char *my_itoa(int nmb)
 {
-    char *str = malloc(sizeof(char) * sizeof(int));
+    char *str = malloc(sizeof(char) * 32);
     if (nmb == 0)
     {
         return set_zero(str);
