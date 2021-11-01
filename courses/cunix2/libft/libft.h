@@ -5,5 +5,6 @@ typedef unsigned long size_t;
 
 void ft_bzero(void *s, size_t n);
 char *ft_strchr(const char *str, int ch);
+int ft_isalpha(int ch);
 
 #endif
