@@ -13,5 +13,7 @@ int ft_toupper(int ch);
 int ft_tolower(int ch);
 int ft_abs(int x);
 div_t ft_div(int nominator, int denominator);
+extern char *ft_strstr(const char *haystack, const char *needle);
+extern char *ft_strnstr(const char *haystack, const char *needle, size_t len); 
 
 #endif
