@@ -2,38 +2,31 @@
 
 extern char *ft_strstr(const char *haystack, const char *needle)
 {
-    const char *substr = NULL;
-    const char *needle_ptr = needle;
-
     if (*needle == '\0')
     {  
         return (char *)haystack;
     }
 
-    while (*haystack != '\0' && *needle_ptr != '\0')
+    while (*haystack != '\0')
     {
-        if (substr == NULL && *haystack == *needle)
-        {
-            substr = haystack;
-        }
+        if (*haystack == *needle) {
+            const char *haystack_ptr = haystack;
+            const char *needle_ptr = needle;
+            while (1) {
+                if (*needle_ptr == '\0') {
+                    return (char *)haystack;
+                }
 
-        if (substr != NULL && *haystack != *needle_ptr)
-        {
-            needle_ptr = (char *)needle;
-            substr = NULL;
-        }
+                if (*needle_ptr != *haystack_ptr) {
+                    break;
+                }
 
-        if (substr != NULL)
-        {
-            needle_ptr++;
-        }  
+                needle_ptr++;
+                haystack_ptr++;
+            }
+        }
         haystack++;
     }
 
-    if (*needle_ptr != '\0') 
-    { 
-        return NULL;
-    }
-
-    return (char *)substr;
+    return NULL;
 }

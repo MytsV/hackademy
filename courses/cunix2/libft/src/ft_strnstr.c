@@ -1,42 +1,38 @@
 #include "../libft.h"
 
+int can_continue(const char *haystack_start, const char *haystack, size_t len) {
+    return (unsigned int)(haystack - haystack_start) <= len;
+}
+
 extern char *ft_strnstr(const char *haystack, const char *needle, size_t len)
 {
-    const char *substr = NULL;
-    const char *needle_ptr = needle;
-    unsigned int count = 0;
+    const char *haystack_start = haystack;
 
     if (*needle == '\0')
     {  
         return (char *)haystack;
     }
 
-    while (*haystack != '\0' && *needle_ptr != '\0' && count < len)
+    while (*haystack != '\0' && can_continue(haystack_start, haystack, len))
     {
-        if (substr == NULL && *haystack == *needle)
-        {
-            substr = haystack;
-        }
+        if (*haystack == *needle) {
+            const char *haystack_ptr = haystack;
+            const char *needle_ptr = needle;
+            while (can_continue(haystack_start, haystack_ptr, len)) {
+                if (*needle_ptr == '\0') {
+                    return (char *)haystack;
+                }
 
-        if (substr != NULL && *haystack != *needle_ptr)
-        {
-            needle_ptr = (char *)needle;
-            substr = NULL;
-        }
+                if (*needle_ptr != *haystack_ptr) {
+                    break;
+                }
 
-        if (substr != NULL)
-        {
-            needle_ptr++;
-        }  
+                needle_ptr++;
+                haystack_ptr++;
+            }
+        }
         haystack++;
-        count++;
     }
 
-    if (*needle_ptr != '\0') 
-    { 
-        return NULL;
-    }
-
-    return (char *)substr;
+    return NULL;
 }
-
