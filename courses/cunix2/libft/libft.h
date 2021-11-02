@@ -1,5 +1,6 @@
 #ifndef LIBFT_H_
 # define LIBFT_H_
+#include <stdlib.h>
 
 typedef unsigned long size_t;
 
@@ -11,5 +12,6 @@ int ft_isascii(int ch);
 int ft_toupper(int ch);
 int ft_tolower(int ch);
 int ft_abs(int x);
+div_t ft_div(int nominator, int denominator);
 
 #endif
