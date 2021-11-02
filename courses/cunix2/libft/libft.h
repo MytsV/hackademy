@@ -16,5 +16,6 @@ div_t ft_div(int nominator, int denominator);
 extern char *ft_strstr(const char *haystack, const char *needle);
 extern char *ft_strnstr(const char *haystack, const char *needle, size_t len); 
 void *ft_memset(void *destination, int c, size_t n);
+void *ft_memcpy(void *dest, const void *source, size_t count);
 
 #endif
