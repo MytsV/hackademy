@@ -22,5 +22,6 @@ void ft_striter(char *s, void (*f)(char *));
 unsigned int ft_strlen(const char *str);
 char *ft_strjoin(char const *s1, char const *s2);
 char *ft_strtrim(char const *s);
+char **ft_strsplit(char const *s, char c);
 
 #endif
