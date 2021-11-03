@@ -1,6 +1,6 @@
 #include "../libft.h"
 
-const int upper_lower_gap = 32;
+static const int upper_lower_gap = 32;
 
 int ft_tolower(int ch)
 {

@@ -1,6 +1,6 @@
 #include "../libft.h"
 
-const int lower_upper_gap = -32;
+static const int lower_upper_gap = -32;
 
 int ft_toupper(int ch)
 {
