@@ -21,5 +21,6 @@ int ft_memcmp(const void *buf1, const void *buf2, size_t count);
 void ft_striter(char *s, void (*f)(char *));
 unsigned int ft_strlen(const char *str);
 char *ft_strjoin(char const *s1, char const *s2);
+char *ft_strtrim(char const *s);
 
 #endif
