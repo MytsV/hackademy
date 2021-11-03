@@ -2,8 +2,9 @@
 
 void ft_bzero(void *s, size_t n) 
 {
+    char *s_char = (char *)s;
     for (unsigned int i = 0; i < n; i++)
     {
-        *((char *)(s + i)) = '\0';
+        *(s_char + i) = '\0';
     }
 }
