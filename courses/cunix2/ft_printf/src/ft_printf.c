@@ -242,7 +242,10 @@ static char *get_processed_specifier(char *specifier, va_list args)
     char *specifier_end = get_specifier_end(specifier);
     modification_t mod = get_modification(specifier, specifier_end);
     char const *value = get_specifier_value(specifier_end, args, mod.modifier);
-    value = get_str_padded(value, mod.padding, mod.padding_char);
+    if (*specifier_end != '%')
+    {
+        value = get_str_padded(value, mod.padding, mod.padding_char);
+    }
     return (char *)value;
 }
 
@@ -261,10 +264,12 @@ static node_t *add_token(node_t *tokens, char *token)
 
 static char *get_tokens_joined(node_t *tokens)
 {
-    char *str = "";
+    char *str = to_mem_from_literal("");
     while (tokens != NULL)
     {
+        char *old_str = str;
         str = ft_strjoin(str, (char *)tokens->data);
+        free(old_str);
         tokens = tokens->next;
     }
     return str;
