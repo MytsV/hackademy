@@ -41,7 +41,7 @@ char *my_itoa(int nmb)
     while (nmb != 0)
     {
         int rem = nmb % 10;
-        *ptr = (rem < 0 ? -1*rem : rem) + '0';
+        *ptr = (rem < 0 ? -1 * rem : rem) + '0';
         ptr++;
         nmb /= 10;
     }

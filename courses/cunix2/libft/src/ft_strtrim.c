@@ -38,7 +38,8 @@ char *ft_strtrim(char const *s)
     char const *real_start = get_real_start(s);
     char const *real_end = get_real_end(s);
 
-    if (real_end < real_start) {
+    if (real_end < real_start) 
+    {
         char *trim_str = malloc(1);
         *trim_str = '\0';
         return trim_str;

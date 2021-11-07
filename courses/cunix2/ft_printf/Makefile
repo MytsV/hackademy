@@ -1,6 +1,6 @@
 CC			:= gcc
 RM			:= rm -rf
-CFLAGS		= -std=c99 -Iinclude -g -c
+CFLAGS		= -std=c99 -Iinclude -Wall -Wextra -Werror -g -c
 SRCS		:= $(wildcard src/*.c) $(wildcard src/tools/*.c)
 OBJS		:= $(SRCS:.c=.o)
 LIB_NAME	:= libprintf.a
